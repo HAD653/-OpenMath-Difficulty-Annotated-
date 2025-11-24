@@ -57,4 +57,54 @@ Each line in the `.jsonl` file is a JSON object with the following fields:
 ```json
 {
   "problem": "Solve for y: $\\frac{y^2 - 3y + 2}{y - 2} = y + 1$",
-  "generated_solution": "Start by multiplying both sides by $y - 2$ to eliminate the denominator...\n\\[ y = \\boxed{2
+  "generated_solution": "Start by multiplying both sides by $y - 2$ to eliminate the denominator...\n\\[ y = \\boxed{2} \\]",
+  "expected_answer": "2",
+  "difficulty": 2,
+  "subject": "Algebra",
+  "problem_source": "augmented_math"
+}
+````
+
+-----
+
+## 💻 Usage
+
+You can load and filter this dataset directly in Python using `pandas` or the `json` library.
+
+### Example: Loading & Filtering for a 1B Model
+
+```python
+import json
+
+input_file = "openmath_difficulty_clean.jsonl"
+dataset = []
+
+# Load the data
+with open(input_file, 'r', encoding='utf-8') as f:
+    for line in f:
+        dataset.append(json.loads(line))
+
+# Filter: Keep only Difficulty 1, 2, and 3 (Safe for 1B models)
+filtered_dataset = [x for x in dataset if x['difficulty'] <= 3]
+
+print(f"Total samples: {len(dataset)}")
+print(f"Optimized for 1B model: {len(filtered_dataset)}")
+```
+
+-----
+
+## ⚙️ Methodology
+
+To ensure SOTA quality, we employed a strict curation pipeline:
+
+1.  **Ingestion:** Sampled \~30k candidates from `nvidia/OpenMathInstruct-2`.
+2.  **LLM-as-a-Judge:** Used `gpt-oss-120b` to evaluate the complexity and subject matter of each problem.
+3.  **Sanitization:** Removed duplicates, verified LaTeX integrity, and standardized the `\boxed{}` answer format.
+4.  **Preservation:** Retained all levels (1-5) in this release to maximize utility for the open-source community, while flagging hard problems via metadata.
+
+-----
+
+## 📜 License & Citation
+
+  - **Original Data:** Derived from NVIDIA OpenMathInstruct-2.
+  - **License:** Released under **CC-BY-4.0** (Creative Commons Attribution 4.0 International).
