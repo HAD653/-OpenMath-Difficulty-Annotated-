@@ -1,4 +1,4 @@
-# 📐 OpenMath-Difficulty-Annotated
+# 📐 OpenMath Difficulty Annotated
 
 ![License](https://img.shields.io/badge/License-CC%20BY%204.0-green.svg)
 ![Task](https://img.shields.io/badge/Task-Mathematical_Reasoning-blue)
