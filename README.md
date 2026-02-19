@@ -1,4 +1,4 @@
-# 📐 OpenMath Difficulty Annotated
+# OpenMath Difficulty Annotated
 
 ![License](https://img.shields.io/badge/License-CC%20BY%204.0-green.svg)
 ![Task](https://img.shields.io/badge/Task-Mathematical_Reasoning-blue)
@@ -6,7 +6,7 @@
 ![Size](https://img.shields.io/badge/Size-10k_Samples-brightgreen)
 ![Verifier](https://img.shields.io/badge/Judge-GPT--OSS--120B-purple)
 
-## 🚀 Overview
+## Overview
 
 **OpenMath-Difficulty-Annotated** is a curated dataset of **10,176 high-quality mathematical reasoning problems**, derived from NVIDIA's *OpenMathInstruct-2*.
 
@@ -24,7 +24,7 @@ The repository contains a single, ready-to-use file:
 
 ---
 
-## 📊 Difficulty Levels (The "Judge" Metrics)
+## Difficulty Levels (The "Judge" Metrics)
 
 The core value of this dataset is the `difficulty` field. It allows you to split the data based on your model's capacity.
 
@@ -36,11 +36,11 @@ The core value of this dataset is the `difficulty` field. It allows you to split
 | **4** | **Hard** (Competition Math) | 816 | Mid-sized Models (7B+) |
 | **5** | **Expert** (Olympiad Level) | 39 | Large Models (70B+) |
 
-> **💡 Pro Tip:** If fine-tuning a 1B model, we strongly recommend filtering for `difficulty <= 3`.
+> **Pro Tip:** If fine-tuning a 1B model, we strongly recommend filtering for `difficulty <= 3`.
 
 ---
 
-## 🧠 Data Structure
+## Data Structure
 
 Each line in the `.jsonl` file is a JSON object with the following fields:
 
@@ -67,7 +67,7 @@ Each line in the `.jsonl` file is a JSON object with the following fields:
 
 -----
 
-## 💻 Usage
+## Usage
 
 You can load and filter this dataset directly in Python using `pandas` or the `json` library.
 
@@ -93,7 +93,7 @@ print(f"Optimized for 1B model: {len(filtered_dataset)}")
 
 -----
 
-## ⚙️ Methodology
+## Methodology
 
 To ensure SOTA quality, we employed a strict curation pipeline:
 
